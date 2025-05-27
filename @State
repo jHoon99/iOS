@@ -1,0 +1,77 @@
+- @State , @Binding
+    
+    
+    ## @State
+    
+    ![image.png](attachment:91e80382-ee8f-4baf-a5c6-5ba2c124f406:image.png)
+    
+    A property wrapper type that can read and write a value managed by SwiftUI.
+    
+    → SwiftUI가 관리하는 값을 읽고 쓸 수 있는 프로퍼티 래퍼이다.
+    
+    @State는 뷰의 상태를 관리하기 위해 사용되는 프로퍼티 래퍼이다.
+    
+    @State로 선언된 프로퍼티는 SwfitUI에 의해 자동으로 관리, 상태가 변경되면 상태를 사용하는 모든 뷰가 자동으로 다시 그려진다.
+    
+    상태를 private로 선언하여 초기화에서 다른 값으로 설정하지 못하게 하여 저장소 관리와 충돌하지 않도록 한다.
+    
+    ```swift
+    import SwiftUI
+    
+    struct LumiView: View {
+        
+        @State private var isPlaying: Bool = false
+        var body: some View {
+            
+            Button(isPlaying ? "Pause" : "Play") {
+                isPlaying.toggle()
+            }
+            
+        }
+    }
+    ```
+    
+    - @State는 View 내에서만 사용할 수 있다.
+    - 단일 출처 → 데이터 일관성 유지
+    - 자동 업데이트 (상태가 변경되면 SwiftUI가 자동으로 해당 상태를 참조하는 모든 뷰를 업데이트)
+    - 간단한 상태관리
+    
+    ## @Binding
+    
+    ![image.png](attachment:f52c30d4-3a60-42d7-b251-b36783c83d14:image.png)
+    
+    A property wrapper type that can read and write a value owned by a source of truth.
+    
+    → 프로퍼티 래퍼는 단일 출처가 소유한 값을 읽고 쓸 수 있게 해주는 타입니다.
+    
+    ** 단일출처란? > 특정 데이터의 유일한 저장 장소. 데이터 공유는 여러 뷰에서 가능 하지만, 원본은 한개.
+    
+    ** 값이 실제로 저장되어 있는곳 > @State로 선언된 변수의 값은 SwiftUI가 관리하는 저장소에 저장된다.
+    
+    `= 단일 출처가 소유한 값을 읽고 쓸 수 있게 해준다 > @State의 상태 값을 읽고 쓸 수 있게 해준다!`
+    
+    ```swift
+    struct PlayButton: View {
+        @Binding var isPlaying: Bool
+        var body: some View {
+            Button(isPlaying ? "Pause" : "Play") {
+                isPlaying.toggle()
+            }
+        }
+    }
+    
+    struct PlayerView: View {
+        @State private var isPlaying: Bool = false
+        var body: some View {
+            VStack {
+            	//PlayButton 바인딩과 연결하기 위해 @State 변수에 $붙여 전달
+                PlayButton(isPlaying: $isPlaying) // Pass a binding.
+            }
+        }
+    }
+    ```
+    
+    PlayreView에서 PlayButton을 호출 > isPlaying 상태 전달 (바인딩 하기 위해 $사용)
+    > PlayButton에서 isPlaying의 값을 변경 할 수 있게 된다.
+    
+    ### 하나의 뷰마다 상태를 저장하는 것보다 상태를 최상단으로 올려 한 곳에서 관리하는 것이 코드 가독성과 유지보수성 및 구조화에 더 도움이 된다.
