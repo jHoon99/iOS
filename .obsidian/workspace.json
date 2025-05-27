@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Swift/ErrorHandling.md",
+                "file": "Swift/클로저.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "ErrorHandling"
+              "title": "클로저"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Swift/ErrorHandling.md",
+                "file": "Swift/클로저.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for ErrorHandling"
+              "title": "Backlinks for 클로저"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Swift/ErrorHandling.md",
+                "file": "Swift/클로저.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from ErrorHandling"
+              "title": "Outgoing links from 클로저"
             }
           },
           {
@@ -142,13 +142,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Swift/ErrorHandling.md",
+                "file": "Swift/클로저.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of ErrorHandling"
+              "title": "Outline of 클로저"
             }
           }
         ]
@@ -169,5 +169,8 @@
     }
   },
   "active": "c118d82657efe8f2",
-  "lastOpenFiles": []
+  "lastOpenFiles": [
+    "Swift/ErrorHandling.md",
+    "Swift/클로저.md"
+  ]
 }
